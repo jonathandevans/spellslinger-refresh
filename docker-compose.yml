@@ -1,0 +1,13 @@
+version: "3.8"
+
+services:
+  refresh-db:
+    image: "python:3.11"
+    container_name: "refresh-db"
+    entrypoint: "/bin/bash"
+    command: "/workspace/refresh-db/entrypoint.sh"
+    volumes:
+      - ".:/workspace"
+    restart: always
+    env_file:
+      - .env
